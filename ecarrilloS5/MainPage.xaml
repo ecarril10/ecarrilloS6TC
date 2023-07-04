@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ecarrilloS5.MainPage">
+
+    <StackLayout>
+        <Label Text="Consumo de servicio web" FontSize="20" HorizontalTextAlignment="Center"/>
+
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28" />
+                
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="CÓDIGO" TextColor="Blue" FontSize="Medium" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="NOMBRE" TextColor="Blue" FontSize="Medium" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="APELLIDO" TextColor="Blue" FontSize="Medium" Grid.Row="0" Grid.Column="2"/>
+            <Label Text="EDAD" TextColor="Blue" FontSize="Medium" Grid.Row="0" Grid.Column="3"/>
+
+        </Grid>
+
+        <ListView x:Name="listarEstudiantes" ItemSelected="listarEstudiantes_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <!--Se enlaza con el json para insertar los datos-->
+                                <Label Text="{Binding codigo}" TextColor="Black" FontSize="Body" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding nombre}" TextColor="Green" FontSize="Body" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding apellido}" TextColor="Red" FontSize="Body" Grid.Row="0" Grid.Column="2"/>
+                                <Label Text="{Binding edad}" TextColor="Orange" FontSize="Body" Grid.Row="0" Grid.Column="3"/>
+                            </Grid>
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="btnInsertar" Text="Insertar" Clicked="btnInsertar_Clicked"/>
+
+
+    </StackLayout>
+
+  
+
+</ContentPage>
